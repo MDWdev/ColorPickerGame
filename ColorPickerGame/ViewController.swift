@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    
+    
     let colorsArray = [
         UIColor(red: 90/255.0, green: 187/255.0, blue: 181/255.0, alpha: 1.0), //teal color
         UIColor(red: 222/255.0, green: 171/255.0, blue: 66/255.0, alpha: 1.0), //yellow color
@@ -19,12 +21,15 @@ class ViewController: UIViewController {
         UIColor(red: 105/255.0, green: 94/255.0, blue: 133/255.0, alpha: 1.0), //purple color
         UIColor(red: 85/255.0, green: 176/255.0, blue: 112/255.0, alpha: 1.0), //green color
     ]
-
+    
+    var leaderBoardArray = [Int]()
     var timer = NSTimer()
     var seconds = 5
     var computerGuess = UIColor.clearColor()
     var numberGuesses = 0
     var backgroundColorCount = 0
+    var winCounter = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,10 +60,8 @@ class ViewController: UIViewController {
     func changeBackgroundColor() {
         view.backgroundColor = getRandomColor()
         backgroundColorCount++
-        print(backgroundColorCount)
         if backgroundColorCount == 3 {
             setComputerGuess()
-            print(computerGuess)
             backgroundColorCount = 0
         }
     }
@@ -67,10 +70,21 @@ class ViewController: UIViewController {
         computerGuess = getRandomColor()
     }
     
+    func setupLeaderboard() {
+        leaderBoardArray.append(numberGuesses)
+        if leaderBoardArray.count > 5 {
+            leaderBoardArray.removeFirst()
+        }
+        
+    }
+    
     @IBAction func guessButton(sender: AnyObject) {
         numberGuesses++
         
         if computerGuess == view.backgroundColor {
+            winCounter++
+            setupLeaderboard()
+            print(leaderBoardArray)
             let alert = UIAlertController(title: "You Guessed it!", message: "It took you \(numberGuesses) tries.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Play Again", style: UIAlertActionStyle.Default, handler: {action in self.setupGame()}))
             
