@@ -17,9 +17,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmY-XB-J7m">
-                                <rect key="frame" x="104" y="254" width="112" height="60"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leaderboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOn-Us-eFe">
+                                <rect key="frame" x="111" y="322" width="98" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKu-Rs-5Nd">
+                                <rect key="frame" x="35" y="365" width="250" height="183"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="183" id="MPM-H2-IcF"/>
+                                    <constraint firstAttribute="width" constant="250" id="UXF-o9-nn1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmY-XB-J7m">
+                                <rect key="frame" x="85" y="239" width="150" height="75"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="cU7-X0-Nf2"/>
+                                    <constraint firstAttribute="height" constant="75" id="dcu-94-BBp"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="Guess">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -29,13 +49,33 @@
                                     <action selector="guessButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7hB-oL-svE"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What Color Am I Thinking Of?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9p-Jq-rgf">
+                                <rect key="frame" x="20" y="28" width="280" height="27"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nOn-Us-eFe" firstAttribute="top" secondItem="lmY-XB-J7m" secondAttribute="bottom" constant="8" id="8JE-s1-cP9"/>
+                            <constraint firstAttribute="trailing" secondItem="RKu-Rs-5Nd" secondAttribute="trailing" constant="35" id="CnE-yG-Wmo"/>
+                            <constraint firstItem="RKu-Rs-5Nd" firstAttribute="top" secondItem="nOn-Us-eFe" secondAttribute="bottom" constant="22" id="Jzb-3c-zGJ"/>
+                            <constraint firstAttribute="trailing" secondItem="lmY-XB-J7m" secondAttribute="trailing" constant="85" id="Kvq-cN-QPM"/>
+                            <constraint firstItem="RKu-Rs-5Nd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="35" id="TFd-cF-2rY"/>
+                            <constraint firstItem="lmY-XB-J7m" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="219" id="dia-up-Phr"/>
+                            <constraint firstItem="lmY-XB-J7m" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="85" id="fLu-mW-bEo"/>
+                            <constraint firstAttribute="trailing" secondItem="nOn-Us-eFe" secondAttribute="trailing" constant="111" id="vUj-cE-Fwl"/>
+                            <constraint firstItem="nOn-Us-eFe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="111" id="zxe-yb-QKv"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="leaderboardLabel" destination="RKu-Rs-5Nd" id="Aw2-aQ-u9E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="202.66666666666666" y="283.05333333333334"/>
+            <point key="canvasLocation" x="202" y="283"/>
         </scene>
     </scenes>
 </document>
